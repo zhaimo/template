@@ -1,0 +1,3669 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      k8s.v1.cni.cncf.io/network-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.130.2.181"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      k8s.v1.cni.cncf.io/networks-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.130.2.181"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for container deployment; cpu, memory limit for container deployment'
+      openshift.io/deployment-config.name: mongodb
+      openshift.io/deployment.name: mongodb-1
+      openshift.io/scc: restricted
+    creationTimestamp: "2021-09-01T20:21:42Z"
+    labels:
+      openshift.io/deployer-pod-for.name: mongodb-1
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:openshift.io/deployment-config.name: {}
+            f:openshift.io/deployment.name: {}
+          f:labels:
+            .: {}
+            f:openshift.io/deployer-pod-for.name: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"d1da514a-90fd-409c-a759-b6649e012d3f"}:
+              .: {}
+              f:apiVersion: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:activeDeadlineSeconds: {}
+          f:containers:
+            k:{"name":"deployment"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"OPENSHIFT_DEPLOYMENT_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"OPENSHIFT_DEPLOYMENT_NAMESPACE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:serviceAccount: {}
+          f:serviceAccountName: {}
+          f:shareProcessNamespace: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: openshift-controller-manager
+      operation: Update
+      time: "2021-09-01T20:21:42Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:k8s.v1.cni.cncf.io/network-status: {}
+            f:k8s.v1.cni.cncf.io/networks-status: {}
+      manager: multus
+      operation: Update
+      time: "2021-09-01T20:21:44Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.130.2.181"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-09-01T20:22:12Z"
+    name: mongodb-1-deploy
+    namespace: template
+    ownerReferences:
+    - apiVersion: v1
+      kind: ReplicationController
+      name: mongodb-1
+      uid: d1da514a-90fd-409c-a759-b6649e012d3f
+    resourceVersion: "280020"
+    selfLink: /api/v1/namespaces/template/pods/mongodb-1-deploy
+    uid: c9ac1653-4051-4e8c-a084-65510cd49012
+  spec:
+    activeDeadlineSeconds: 21600
+    containers:
+    - env:
+      - name: OPENSHIFT_DEPLOYMENT_NAME
+        value: mongodb-1
+      - name: OPENSHIFT_DEPLOYMENT_NAMESPACE
+        value: template
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:82aeaac98215cfaf48c580e2b628d85056c4aaf81143e2a681257c03dffc8ee8
+      imagePullPolicy: IfNotPresent
+      name: deployment
+      resources:
+        limits:
+          cpu: 1500m
+          memory: 2Gi
+        requests:
+          cpu: 5m
+          memory: 50Mi
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+        runAsUser: 1000660000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: deployer-token-79p8q
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: deployer-dockercfg-njld8
+    nodeName: na46-5m9nf-worker-0-488z5
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Never
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1000660000
+      seLinuxOptions:
+        level: s0:c26,c5
+    serviceAccount: deployer
+    serviceAccountName: deployer
+    shareProcessNamespace: false
+    terminationGracePeriodSeconds: 10
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    volumes:
+    - name: deployer-token-79p8q
+      secret:
+        defaultMode: 420
+        secretName: deployer-token-79p8q
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:21:42Z"
+      reason: PodCompleted
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:22:12Z"
+      reason: PodCompleted
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:22:12Z"
+      reason: PodCompleted
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:21:42Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://b06d5eeb4598efdbc3548ca8ccc6d50a8168c36c02699793db149e2ba85b1a02
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:82aeaac98215cfaf48c580e2b628d85056c4aaf81143e2a681257c03dffc8ee8
+      imageID: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:82aeaac98215cfaf48c580e2b628d85056c4aaf81143e2a681257c03dffc8ee8
+      lastState: {}
+      name: deployment
+      ready: false
+      restartCount: 0
+      started: false
+      state:
+        terminated:
+          containerID: cri-o://b06d5eeb4598efdbc3548ca8ccc6d50a8168c36c02699793db149e2ba85b1a02
+          exitCode: 0
+          finishedAt: "2021-09-01T20:22:11Z"
+          reason: Completed
+          startedAt: "2021-09-01T20:21:45Z"
+    hostIP: 10.0.2.210
+    phase: Succeeded
+    podIP: 10.130.2.181
+    podIPs:
+    - ip: 10.130.2.181
+    qosClass: Burstable
+    startTime: "2021-09-01T20:21:42Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      k8s.v1.cni.cncf.io/network-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.128.4.130"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      k8s.v1.cni.cncf.io/networks-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.128.4.130"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu request for container mongodb; cpu limit for container mongodb'
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: mongodb
+      openshift.io/deployment.name: mongodb-1
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/scc: restricted
+    creationTimestamp: "2021-09-01T20:21:45Z"
+    generateName: mongodb-1-
+    labels:
+      deployment: mongodb-1
+      deploymentconfig: mongodb
+      name: mongodb
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:openshift.io/deployment-config.latest-version: {}
+            f:openshift.io/deployment-config.name: {}
+            f:openshift.io/deployment.name: {}
+            f:openshift.io/generated-by: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:deployment: {}
+            f:deploymentconfig: {}
+            f:name: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"d1da514a-90fd-409c-a759-b6649e012d3f"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"mongodb"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"MONGODB_ADMIN_PASSWORD"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:secretKeyRef:
+                      .: {}
+                      f:key: {}
+                      f:name: {}
+                k:{"name":"MONGODB_DATABASE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"MONGODB_PASSWORD"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:secretKeyRef:
+                      .: {}
+                      f:key: {}
+                      f:name: {}
+                k:{"name":"MONGODB_USER"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:secretKeyRef:
+                      .: {}
+                      f:key: {}
+                      f:name: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:livenessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:initialDelaySeconds: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:tcpSocket:
+                  .: {}
+                  f:port: {}
+                f:timeoutSeconds: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":27017,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+              f:readinessProbe:
+                .: {}
+                f:exec:
+                  .: {}
+                  f:command: {}
+                f:failureThreshold: {}
+                f:initialDelaySeconds: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:resources:
+                .: {}
+                f:limits:
+                  .: {}
+                  f:memory: {}
+                f:requests:
+                  .: {}
+                  f:memory: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+              f:volumeMounts:
+                .: {}
+                k:{"mountPath":"/var/lib/mongodb/data"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+          f:volumes:
+            .: {}
+            k:{"name":"mongodb-data"}:
+              .: {}
+              f:emptyDir: {}
+              f:name: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-09-01T20:21:45Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:k8s.v1.cni.cncf.io/network-status: {}
+            f:k8s.v1.cni.cncf.io/networks-status: {}
+      manager: multus
+      operation: Update
+      time: "2021-09-01T20:21:47Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.128.4.130"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-09-01T20:22:11Z"
+    name: mongodb-1-qsdzb
+    namespace: template
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicationController
+      name: mongodb-1
+      uid: d1da514a-90fd-409c-a759-b6649e012d3f
+    resourceVersion: "280008"
+    selfLink: /api/v1/namespaces/template/pods/mongodb-1-qsdzb
+    uid: 0be5c5db-1cc2-4238-99f6-3803d379ea4f
+  spec:
+    containers:
+    - env:
+      - name: MONGODB_USER
+        valueFrom:
+          secretKeyRef:
+            key: database-user
+            name: nodejs-mongodb
+      - name: MONGODB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            key: database-password
+            name: nodejs-mongodb
+      - name: MONGODB_DATABASE
+        value: mongodb
+      - name: MONGODB_ADMIN_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            key: database-admin-password
+            name: nodejs-mongodb
+      image: image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:8dc9932eabd30f2ee4d0b882500c65b48f3c2fbbd85bfd51d0d18410af404a39
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        successThreshold: 1
+        tcpSocket:
+          port: 27017
+        timeoutSeconds: 1
+      name: mongodb
+      ports:
+      - containerPort: 27017
+        protocol: TCP
+      readinessProbe:
+        exec:
+          command:
+          - /bin/sh
+          - -i
+          - -c
+          - mongo 127.0.0.1:27017/$MONGODB_DATABASE -u $MONGODB_USER -p $MONGODB_PASSWORD --eval="quit()"
+        failureThreshold: 3
+        initialDelaySeconds: 3
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        limits:
+          cpu: 1500m
+          memory: 512Mi
+        requests:
+          cpu: 5m
+          memory: 512Mi
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+        runAsUser: 1000660000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/lib/mongodb/data
+        name: mongodb-data
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-qckr5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: default-dockercfg-45vbn
+    nodeName: na46-5m9nf-worker-0-n2rww
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1000660000
+      seLinuxOptions:
+        level: s0:c26,c5
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    volumes:
+    - emptyDir: {}
+      name: mongodb-data
+    - name: default-token-qckr5
+      secret:
+        defaultMode: 420
+        secretName: default-token-qckr5
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:21:45Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:22:11Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:22:11Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:21:45Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://ef3a3215ab45df29bf9903eb0631613d32f4fdccf62a3c13d57f2a378def00e1
+      image: image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:8dc9932eabd30f2ee4d0b882500c65b48f3c2fbbd85bfd51d0d18410af404a39
+      imageID: image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:8dc9932eabd30f2ee4d0b882500c65b48f3c2fbbd85bfd51d0d18410af404a39
+      lastState: {}
+      name: mongodb
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-09-01T20:22:02Z"
+    hostIP: 10.0.1.37
+    phase: Running
+    podIP: 10.128.4.130
+    podIPs:
+    - ip: 10.128.4.130
+    qosClass: Burstable
+    startTime: "2021-09-01T20:21:45Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      k8s.v1.cni.cncf.io/network-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.128.4.129"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      k8s.v1.cni.cncf.io/networks-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.128.4.129"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for container sti-build; cpu, memory limit for container sti-build; cpu, memory request for init container git-clone; cpu, memory limit for init container git-clone; cpu, memory request for init container manage-dockerfile; cpu, memory limit for init container manage-dockerfile'
+      openshift.io/build.name: nodejs-mongodb-1
+      openshift.io/scc: privileged
+    creationTimestamp: "2021-09-01T20:21:42Z"
+    labels:
+      openshift.io/build.name: nodejs-mongodb-1
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:openshift.io/build.name: {}
+          f:labels:
+            .: {}
+            f:openshift.io/build.name: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"3cfea72b-b512-4a71-8582-53cf8de15595"}:
+              .: {}
+              f:apiVersion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:activeDeadlineSeconds: {}
+          f:containers:
+            k:{"name":"sti-build"}:
+              .: {}
+              f:args: {}
+              f:env:
+                .: {}
+                k:{"name":"ALLOWED_UIDS"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_BLOBCACHE_DIR"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_REGISTRIES_CONF_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_REGISTRIES_DIR_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_SIGNATURE_POLICY_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_STORAGE_CONF_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_STORAGE_DRIVER"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"DROP_CAPS"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HTTP_PROXY"}:
+                  .: {}
+                  f:name: {}
+                k:{"name":"HTTPS_PROXY"}:
+                  .: {}
+                  f:name: {}
+                k:{"name":"LANG"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"NO_PROXY"}:
+                  .: {}
+                  f:name: {}
+                k:{"name":"PULL_DOCKERCFG_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"PUSH_DOCKERCFG_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SOURCE_REPOSITORY"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SOURCE_URI"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:securityContext:
+                .: {}
+                f:privileged: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+              f:volumeMounts:
+                .: {}
+                k:{"mountPath":"/tmp/build"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/var/cache/blobs"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/var/lib/containers/cache"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/var/lib/containers/storage"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/var/lib/kubelet/config.json"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/var/run/configs/openshift.io/build-system"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+                k:{"mountPath":"/var/run/configs/openshift.io/certs"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/var/run/configs/openshift.io/pki"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/var/run/secrets/openshift.io/pull"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+                k:{"mountPath":"/var/run/secrets/openshift.io/push"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:initContainers:
+            .: {}
+            k:{"name":"git-clone"}:
+              .: {}
+              f:args: {}
+              f:env:
+                .: {}
+                k:{"name":"ALLOWED_UIDS"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_BLOBCACHE_DIR"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_REGISTRIES_CONF_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_REGISTRIES_DIR_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_SIGNATURE_POLICY_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_STORAGE_CONF_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"DROP_CAPS"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HTTP_PROXY"}:
+                  .: {}
+                  f:name: {}
+                k:{"name":"HTTPS_PROXY"}:
+                  .: {}
+                  f:name: {}
+                k:{"name":"LANG"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"NO_PROXY"}:
+                  .: {}
+                  f:name: {}
+                k:{"name":"SOURCE_REPOSITORY"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SOURCE_URI"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+              f:volumeMounts:
+                .: {}
+                k:{"mountPath":"/tmp/build"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/var/cache/blobs"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/var/run/configs/openshift.io/build-system"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+                k:{"mountPath":"/var/run/configs/openshift.io/certs"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/var/run/configs/openshift.io/pki"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+            k:{"name":"manage-dockerfile"}:
+              .: {}
+              f:args: {}
+              f:env:
+                .: {}
+                k:{"name":"ALLOWED_UIDS"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_BLOBCACHE_DIR"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_REGISTRIES_CONF_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_REGISTRIES_DIR_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_SIGNATURE_POLICY_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"BUILD_STORAGE_CONF_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"DROP_CAPS"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HTTP_PROXY"}:
+                  .: {}
+                  f:name: {}
+                k:{"name":"HTTPS_PROXY"}:
+                  .: {}
+                  f:name: {}
+                k:{"name":"LANG"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"NO_PROXY"}:
+                  .: {}
+                  f:name: {}
+                k:{"name":"SOURCE_REPOSITORY"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SOURCE_URI"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+              f:volumeMounts:
+                .: {}
+                k:{"mountPath":"/tmp/build"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/var/cache/blobs"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/var/run/configs/openshift.io/build-system"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+                k:{"mountPath":"/var/run/configs/openshift.io/certs"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/var/run/configs/openshift.io/pki"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+          f:nodeSelector:
+            .: {}
+            f:kubernetes.io/os: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:serviceAccount: {}
+          f:serviceAccountName: {}
+          f:terminationGracePeriodSeconds: {}
+          f:volumes:
+            .: {}
+            k:{"name":"build-blob-cache"}:
+              .: {}
+              f:emptyDir: {}
+              f:name: {}
+            k:{"name":"build-ca-bundles"}:
+              .: {}
+              f:configMap:
+                .: {}
+                f:defaultMode: {}
+                f:items: {}
+                f:name: {}
+              f:name: {}
+            k:{"name":"build-proxy-ca-bundles"}:
+              .: {}
+              f:configMap:
+                .: {}
+                f:defaultMode: {}
+                f:items: {}
+                f:name: {}
+              f:name: {}
+            k:{"name":"build-system-configs"}:
+              .: {}
+              f:configMap:
+                .: {}
+                f:defaultMode: {}
+                f:name: {}
+              f:name: {}
+            k:{"name":"buildcachedir"}:
+              .: {}
+              f:hostPath:
+                .: {}
+                f:path: {}
+                f:type: {}
+              f:name: {}
+            k:{"name":"builder-dockercfg-rjr4x-pull"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:secretName: {}
+            k:{"name":"builder-dockercfg-rjr4x-push"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:secretName: {}
+            k:{"name":"buildworkdir"}:
+              .: {}
+              f:emptyDir: {}
+              f:name: {}
+            k:{"name":"container-storage-root"}:
+              .: {}
+              f:emptyDir: {}
+              f:name: {}
+            k:{"name":"node-pullsecrets"}:
+              .: {}
+              f:hostPath:
+                .: {}
+                f:path: {}
+                f:type: {}
+              f:name: {}
+      manager: openshift-controller-manager
+      operation: Update
+      time: "2021-09-01T20:21:42Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:k8s.v1.cni.cncf.io/network-status: {}
+            f:k8s.v1.cni.cncf.io/networks-status: {}
+      manager: multus
+      operation: Update
+      time: "2021-09-01T20:21:45Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:initContainerStatuses: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.128.4.129"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-09-01T20:22:32Z"
+    name: nodejs-mongodb-1-build
+    namespace: template
+    ownerReferences:
+    - apiVersion: build.openshift.io/v1
+      controller: true
+      kind: Build
+      name: nodejs-mongodb-1
+      uid: 3cfea72b-b512-4a71-8582-53cf8de15595
+    resourceVersion: "280227"
+    selfLink: /api/v1/namespaces/template/pods/nodejs-mongodb-1-build
+    uid: e1e244a2-bb51-4641-9291-6f111f789136
+  spec:
+    activeDeadlineSeconds: 604800
+    containers:
+    - args:
+      - openshift-sti-build
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"build.openshift.io/v1","metadata":{"name":"nodejs-mongodb-1","namespace":"template","selfLink":"/apis/build.openshift.io/v1/namespaces/template/builds/nodejs-mongodb-1","uid":"3cfea72b-b512-4a71-8582-53cf8de15595","resourceVersion":"279722","creationTimestamp":"2021-09-01T20:21:42Z","labels":{"app":"nodejs-mongodb","buildconfig":"nodejs-mongodb","openshift.io/build-config.name":"nodejs-mongodb","openshift.io/build.start-policy":"Serial","template":"nodejs-mongodb"},"annotations":{"openshift.io/build-config.name":"nodejs-mongodb","openshift.io/build.number":"1"},"ownerReferences":[{"apiVersion":"build.openshift.io/v1","kind":"BuildConfig","name":"nodejs-mongodb","uid":"f8f8b4d3-02eb-4199-aef8-4a183d7ea962","controller":true}],"managedFields":[{"manager":"openshift-apiserver","operation":"Update","apiVersion":"build.openshift.io/v1","time":"2021-09-01T20:21:42Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:openshift.io/build-config.name":{},"f:openshift.io/build.number":{}},"f:labels":{".":{},"f:app":{},"f:buildconfig":{},"f:openshift.io/build-config.name":{},"f:openshift.io/build.start-policy":{},"f:template":{}},"f:ownerReferences":{".":{},"k:{\"uid\":\"f8f8b4d3-02eb-4199-aef8-4a183d7ea962\"}":{".":{},"f:apiVersion":{},"f:controller":{},"f:kind":{},"f:name":{},"f:uid":{}}}},"f:spec":{"f:output":{"f:to":{".":{},"f:kind":{},"f:name":{}}},"f:postCommit":{"f:script":{}},"f:serviceAccount":{},"f:source":{"f:git":{".":{},"f:uri":{}},"f:type":{}},"f:strategy":{"f:sourceStrategy":{".":{},"f:env":{},"f:from":{".":{},"f:kind":{},"f:name":{}},"f:pullSecret":{".":{},"f:name":{}}},"f:type":{}},"f:triggeredBy":{}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"New\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:status":{},"f:type":{}}},"f:config":{".":{},"f:kind":{},"f:name":{},"f:namespace":{}},"f:phase":{}}}}]},"spec":{"serviceAccount":"builder","source":{"type":"Git","git":{"uri":"https://github.com/sclorg/nodejs-ex.git"}},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:cbee9886f23a0a5d2cb239b07e62a7c6c12a5b21181f467c3e6ce2ae3e69efbc"},"pullSecret":{"name":"builder-dockercfg-rjr4x"},"env":[{"name":"NPM_MIRROR","value":"https://registry.npmjs.org"}]}},"output":{"to":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb:latest"},"pushSecret":{"name":"builder-dockercfg-rjr4x"}},"resources":{},"postCommit":{"script":"npm test"},"nodeSelector":null,"triggeredBy":[{"message":"Build configuration change"}]},"status":{"phase":"New","outputDockerImageReference":"image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb:latest","config":{"kind":"BuildConfig","namespace":"template","name":"nodejs-mongodb"},"output":{},"conditions":[{"type":"New","status":"True","lastUpdateTime":"2021-09-01T20:21:42Z","lastTransitionTime":"2021-09-01T20:21:42Z"}]}}
+      - name: LANG
+        value: en_US.utf8
+      - name: SOURCE_REPOSITORY
+        value: https://github.com/sclorg/nodejs-ex.git
+      - name: SOURCE_URI
+        value: https://github.com/sclorg/nodejs-ex.git
+      - name: ALLOWED_UIDS
+        value: 1-
+      - name: DROP_CAPS
+        value: KILL,MKNOD,SETGID,SETUID
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      - name: PULL_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/pull
+      - name: BUILD_REGISTRIES_CONF_PATH
+        value: /var/run/configs/openshift.io/build-system/registries.conf
+      - name: BUILD_REGISTRIES_DIR_PATH
+        value: /var/run/configs/openshift.io/build-system/registries.d
+      - name: BUILD_SIGNATURE_POLICY_PATH
+        value: /var/run/configs/openshift.io/build-system/policy.json
+      - name: BUILD_STORAGE_CONF_PATH
+        value: /var/run/configs/openshift.io/build-system/storage.conf
+      - name: BUILD_STORAGE_DRIVER
+        value: overlay
+      - name: BUILD_BLOBCACHE_DIR
+        value: /var/cache/blobs
+      - name: HTTP_PROXY
+      - name: HTTPS_PROXY
+      - name: NO_PROXY
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9cd4b07dded29a457542b9e9938c26a88c592a4616c1ddaa573ff913c6237cb6
+      imagePullPolicy: IfNotPresent
+      name: sti-build
+      resources:
+        limits:
+          cpu: 1500m
+          memory: 2Gi
+        requests:
+          cpu: 5m
+          memory: 50Mi
+      securityContext:
+        privileged: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: FallbackToLogsOnError
+      volumeMounts:
+      - mountPath: /var/lib/kubelet/config.json
+        name: node-pullsecrets
+      - mountPath: /tmp/build
+        name: buildworkdir
+      - mountPath: /var/lib/containers/cache
+        name: buildcachedir
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-rjr4x-push
+        readOnly: true
+      - mountPath: /var/run/secrets/openshift.io/pull
+        name: builder-dockercfg-rjr4x-pull
+        readOnly: true
+      - mountPath: /var/run/configs/openshift.io/build-system
+        name: build-system-configs
+        readOnly: true
+      - mountPath: /var/run/configs/openshift.io/certs
+        name: build-ca-bundles
+      - mountPath: /var/run/configs/openshift.io/pki
+        name: build-proxy-ca-bundles
+      - mountPath: /var/lib/containers/storage
+        name: container-storage-root
+      - mountPath: /var/cache/blobs
+        name: build-blob-cache
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-tqnnw
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: builder-dockercfg-rjr4x
+    initContainers:
+    - args:
+      - openshift-git-clone
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"build.openshift.io/v1","metadata":{"name":"nodejs-mongodb-1","namespace":"template","selfLink":"/apis/build.openshift.io/v1/namespaces/template/builds/nodejs-mongodb-1","uid":"3cfea72b-b512-4a71-8582-53cf8de15595","resourceVersion":"279722","creationTimestamp":"2021-09-01T20:21:42Z","labels":{"app":"nodejs-mongodb","buildconfig":"nodejs-mongodb","openshift.io/build-config.name":"nodejs-mongodb","openshift.io/build.start-policy":"Serial","template":"nodejs-mongodb"},"annotations":{"openshift.io/build-config.name":"nodejs-mongodb","openshift.io/build.number":"1"},"ownerReferences":[{"apiVersion":"build.openshift.io/v1","kind":"BuildConfig","name":"nodejs-mongodb","uid":"f8f8b4d3-02eb-4199-aef8-4a183d7ea962","controller":true}],"managedFields":[{"manager":"openshift-apiserver","operation":"Update","apiVersion":"build.openshift.io/v1","time":"2021-09-01T20:21:42Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:openshift.io/build-config.name":{},"f:openshift.io/build.number":{}},"f:labels":{".":{},"f:app":{},"f:buildconfig":{},"f:openshift.io/build-config.name":{},"f:openshift.io/build.start-policy":{},"f:template":{}},"f:ownerReferences":{".":{},"k:{\"uid\":\"f8f8b4d3-02eb-4199-aef8-4a183d7ea962\"}":{".":{},"f:apiVersion":{},"f:controller":{},"f:kind":{},"f:name":{},"f:uid":{}}}},"f:spec":{"f:output":{"f:to":{".":{},"f:kind":{},"f:name":{}}},"f:postCommit":{"f:script":{}},"f:serviceAccount":{},"f:source":{"f:git":{".":{},"f:uri":{}},"f:type":{}},"f:strategy":{"f:sourceStrategy":{".":{},"f:env":{},"f:from":{".":{},"f:kind":{},"f:name":{}},"f:pullSecret":{".":{},"f:name":{}}},"f:type":{}},"f:triggeredBy":{}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"New\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:status":{},"f:type":{}}},"f:config":{".":{},"f:kind":{},"f:name":{},"f:namespace":{}},"f:phase":{}}}}]},"spec":{"serviceAccount":"builder","source":{"type":"Git","git":{"uri":"https://github.com/sclorg/nodejs-ex.git"}},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:cbee9886f23a0a5d2cb239b07e62a7c6c12a5b21181f467c3e6ce2ae3e69efbc"},"pullSecret":{"name":"builder-dockercfg-rjr4x"},"env":[{"name":"NPM_MIRROR","value":"https://registry.npmjs.org"}]}},"output":{"to":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb:latest"},"pushSecret":{"name":"builder-dockercfg-rjr4x"}},"resources":{},"postCommit":{"script":"npm test"},"nodeSelector":null,"triggeredBy":[{"message":"Build configuration change"}]},"status":{"phase":"New","outputDockerImageReference":"image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb:latest","config":{"kind":"BuildConfig","namespace":"template","name":"nodejs-mongodb"},"output":{},"conditions":[{"type":"New","status":"True","lastUpdateTime":"2021-09-01T20:21:42Z","lastTransitionTime":"2021-09-01T20:21:42Z"}]}}
+      - name: LANG
+        value: en_US.utf8
+      - name: SOURCE_REPOSITORY
+        value: https://github.com/sclorg/nodejs-ex.git
+      - name: SOURCE_URI
+        value: https://github.com/sclorg/nodejs-ex.git
+      - name: ALLOWED_UIDS
+        value: 1-
+      - name: DROP_CAPS
+        value: KILL,MKNOD,SETGID,SETUID
+      - name: BUILD_REGISTRIES_CONF_PATH
+        value: /var/run/configs/openshift.io/build-system/registries.conf
+      - name: BUILD_REGISTRIES_DIR_PATH
+        value: /var/run/configs/openshift.io/build-system/registries.d
+      - name: BUILD_SIGNATURE_POLICY_PATH
+        value: /var/run/configs/openshift.io/build-system/policy.json
+      - name: BUILD_STORAGE_CONF_PATH
+        value: /var/run/configs/openshift.io/build-system/storage.conf
+      - name: BUILD_BLOBCACHE_DIR
+        value: /var/cache/blobs
+      - name: HTTP_PROXY
+      - name: HTTPS_PROXY
+      - name: NO_PROXY
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9cd4b07dded29a457542b9e9938c26a88c592a4616c1ddaa573ff913c6237cb6
+      imagePullPolicy: IfNotPresent
+      name: git-clone
+      resources:
+        limits:
+          cpu: 1500m
+          memory: 2Gi
+        requests:
+          cpu: 5m
+          memory: 50Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: FallbackToLogsOnError
+      volumeMounts:
+      - mountPath: /tmp/build
+        name: buildworkdir
+      - mountPath: /var/run/configs/openshift.io/build-system
+        name: build-system-configs
+        readOnly: true
+      - mountPath: /var/run/configs/openshift.io/certs
+        name: build-ca-bundles
+      - mountPath: /var/run/configs/openshift.io/pki
+        name: build-proxy-ca-bundles
+      - mountPath: /var/cache/blobs
+        name: build-blob-cache
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-tqnnw
+        readOnly: true
+    - args:
+      - openshift-manage-dockerfile
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"build.openshift.io/v1","metadata":{"name":"nodejs-mongodb-1","namespace":"template","selfLink":"/apis/build.openshift.io/v1/namespaces/template/builds/nodejs-mongodb-1","uid":"3cfea72b-b512-4a71-8582-53cf8de15595","resourceVersion":"279722","creationTimestamp":"2021-09-01T20:21:42Z","labels":{"app":"nodejs-mongodb","buildconfig":"nodejs-mongodb","openshift.io/build-config.name":"nodejs-mongodb","openshift.io/build.start-policy":"Serial","template":"nodejs-mongodb"},"annotations":{"openshift.io/build-config.name":"nodejs-mongodb","openshift.io/build.number":"1"},"ownerReferences":[{"apiVersion":"build.openshift.io/v1","kind":"BuildConfig","name":"nodejs-mongodb","uid":"f8f8b4d3-02eb-4199-aef8-4a183d7ea962","controller":true}],"managedFields":[{"manager":"openshift-apiserver","operation":"Update","apiVersion":"build.openshift.io/v1","time":"2021-09-01T20:21:42Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:openshift.io/build-config.name":{},"f:openshift.io/build.number":{}},"f:labels":{".":{},"f:app":{},"f:buildconfig":{},"f:openshift.io/build-config.name":{},"f:openshift.io/build.start-policy":{},"f:template":{}},"f:ownerReferences":{".":{},"k:{\"uid\":\"f8f8b4d3-02eb-4199-aef8-4a183d7ea962\"}":{".":{},"f:apiVersion":{},"f:controller":{},"f:kind":{},"f:name":{},"f:uid":{}}}},"f:spec":{"f:output":{"f:to":{".":{},"f:kind":{},"f:name":{}}},"f:postCommit":{"f:script":{}},"f:serviceAccount":{},"f:source":{"f:git":{".":{},"f:uri":{}},"f:type":{}},"f:strategy":{"f:sourceStrategy":{".":{},"f:env":{},"f:from":{".":{},"f:kind":{},"f:name":{}},"f:pullSecret":{".":{},"f:name":{}}},"f:type":{}},"f:triggeredBy":{}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"New\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:status":{},"f:type":{}}},"f:config":{".":{},"f:kind":{},"f:name":{},"f:namespace":{}},"f:phase":{}}}}]},"spec":{"serviceAccount":"builder","source":{"type":"Git","git":{"uri":"https://github.com/sclorg/nodejs-ex.git"}},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:cbee9886f23a0a5d2cb239b07e62a7c6c12a5b21181f467c3e6ce2ae3e69efbc"},"pullSecret":{"name":"builder-dockercfg-rjr4x"},"env":[{"name":"NPM_MIRROR","value":"https://registry.npmjs.org"}]}},"output":{"to":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb:latest"},"pushSecret":{"name":"builder-dockercfg-rjr4x"}},"resources":{},"postCommit":{"script":"npm test"},"nodeSelector":null,"triggeredBy":[{"message":"Build configuration change"}]},"status":{"phase":"New","outputDockerImageReference":"image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb:latest","config":{"kind":"BuildConfig","namespace":"template","name":"nodejs-mongodb"},"output":{},"conditions":[{"type":"New","status":"True","lastUpdateTime":"2021-09-01T20:21:42Z","lastTransitionTime":"2021-09-01T20:21:42Z"}]}}
+      - name: LANG
+        value: en_US.utf8
+      - name: SOURCE_REPOSITORY
+        value: https://github.com/sclorg/nodejs-ex.git
+      - name: SOURCE_URI
+        value: https://github.com/sclorg/nodejs-ex.git
+      - name: ALLOWED_UIDS
+        value: 1-
+      - name: DROP_CAPS
+        value: KILL,MKNOD,SETGID,SETUID
+      - name: BUILD_REGISTRIES_CONF_PATH
+        value: /var/run/configs/openshift.io/build-system/registries.conf
+      - name: BUILD_REGISTRIES_DIR_PATH
+        value: /var/run/configs/openshift.io/build-system/registries.d
+      - name: BUILD_SIGNATURE_POLICY_PATH
+        value: /var/run/configs/openshift.io/build-system/policy.json
+      - name: BUILD_STORAGE_CONF_PATH
+        value: /var/run/configs/openshift.io/build-system/storage.conf
+      - name: BUILD_BLOBCACHE_DIR
+        value: /var/cache/blobs
+      - name: HTTP_PROXY
+      - name: HTTPS_PROXY
+      - name: NO_PROXY
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9cd4b07dded29a457542b9e9938c26a88c592a4616c1ddaa573ff913c6237cb6
+      imagePullPolicy: IfNotPresent
+      name: manage-dockerfile
+      resources:
+        limits:
+          cpu: 1500m
+          memory: 2Gi
+        requests:
+          cpu: 5m
+          memory: 50Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: FallbackToLogsOnError
+      volumeMounts:
+      - mountPath: /tmp/build
+        name: buildworkdir
+      - mountPath: /var/run/configs/openshift.io/build-system
+        name: build-system-configs
+        readOnly: true
+      - mountPath: /var/run/configs/openshift.io/certs
+        name: build-ca-bundles
+      - mountPath: /var/run/configs/openshift.io/pki
+        name: build-proxy-ca-bundles
+      - mountPath: /var/cache/blobs
+        name: build-blob-cache
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-tqnnw
+        readOnly: true
+    nodeName: na46-5m9nf-worker-0-n2rww
+    nodeSelector:
+      kubernetes.io/os: linux
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Never
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    volumes:
+    - hostPath:
+        path: /var/lib/kubelet/config.json
+        type: File
+      name: node-pullsecrets
+    - hostPath:
+        path: /var/lib/containers/cache
+        type: ""
+      name: buildcachedir
+    - emptyDir: {}
+      name: buildworkdir
+    - name: builder-dockercfg-rjr4x-push
+      secret:
+        defaultMode: 384
+        secretName: builder-dockercfg-rjr4x
+    - name: builder-dockercfg-rjr4x-pull
+      secret:
+        defaultMode: 384
+        secretName: builder-dockercfg-rjr4x
+    - configMap:
+        defaultMode: 420
+        name: nodejs-mongodb-1-sys-config
+      name: build-system-configs
+    - configMap:
+        defaultMode: 420
+        items:
+        - key: service-ca.crt
+          path: certs.d/image-registry.openshift-image-registry.svc:5000/ca.crt
+        name: nodejs-mongodb-1-ca
+      name: build-ca-bundles
+    - configMap:
+        defaultMode: 420
+        items:
+        - key: ca-bundle.crt
+          path: tls-ca-bundle.pem
+        name: nodejs-mongodb-1-global-ca
+      name: build-proxy-ca-bundles
+    - emptyDir: {}
+      name: container-storage-root
+    - emptyDir: {}
+      name: build-blob-cache
+    - name: builder-token-tqnnw
+      secret:
+        defaultMode: 420
+        secretName: builder-token-tqnnw
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:21:48Z"
+      reason: PodCompleted
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:22:32Z"
+      reason: PodCompleted
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:22:32Z"
+      reason: PodCompleted
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:21:42Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://f62bad06e49b5350a829a86deb08c143d1d74b1484c7636a8a6c7ea20d0cf089
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9cd4b07dded29a457542b9e9938c26a88c592a4616c1ddaa573ff913c6237cb6
+      imageID: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9cd4b07dded29a457542b9e9938c26a88c592a4616c1ddaa573ff913c6237cb6
+      lastState: {}
+      name: sti-build
+      ready: false
+      restartCount: 0
+      started: false
+      state:
+        terminated:
+          containerID: cri-o://f62bad06e49b5350a829a86deb08c143d1d74b1484c7636a8a6c7ea20d0cf089
+          exitCode: 0
+          finishedAt: "2021-09-01T20:22:32Z"
+          reason: Completed
+          startedAt: "2021-09-01T20:21:48Z"
+    hostIP: 10.0.1.37
+    initContainerStatuses:
+    - containerID: cri-o://cee1a91eb96926a768849a0ca1bf23c88585a02f1a7465df6407e5ffe974c92d
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9cd4b07dded29a457542b9e9938c26a88c592a4616c1ddaa573ff913c6237cb6
+      imageID: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9cd4b07dded29a457542b9e9938c26a88c592a4616c1ddaa573ff913c6237cb6
+      lastState: {}
+      name: git-clone
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: cri-o://cee1a91eb96926a768849a0ca1bf23c88585a02f1a7465df6407e5ffe974c92d
+          exitCode: 0
+          finishedAt: "2021-09-01T20:21:47Z"
+          reason: Completed
+          startedAt: "2021-09-01T20:21:46Z"
+    - containerID: cri-o://f371cdbf82a95aec3b27afaa4555c73aa4533b8e09bca507b077606f95df6845
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9cd4b07dded29a457542b9e9938c26a88c592a4616c1ddaa573ff913c6237cb6
+      imageID: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9cd4b07dded29a457542b9e9938c26a88c592a4616c1ddaa573ff913c6237cb6
+      lastState: {}
+      name: manage-dockerfile
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: cri-o://f371cdbf82a95aec3b27afaa4555c73aa4533b8e09bca507b077606f95df6845
+          exitCode: 0
+          finishedAt: "2021-09-01T20:21:48Z"
+          reason: Completed
+          startedAt: "2021-09-01T20:21:47Z"
+    phase: Succeeded
+    podIP: 10.128.4.129
+    podIPs:
+    - ip: 10.128.4.129
+    qosClass: Burstable
+    startTime: "2021-09-01T20:21:42Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      k8s.v1.cni.cncf.io/network-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.130.2.184"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      k8s.v1.cni.cncf.io/networks-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.130.2.184"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for container deployment; cpu, memory limit for container deployment'
+      openshift.io/deployment-config.name: nodejs-mongodb
+      openshift.io/deployment.name: nodejs-mongodb-1
+      openshift.io/scc: restricted
+    creationTimestamp: "2021-09-01T20:22:32Z"
+    labels:
+      openshift.io/deployer-pod-for.name: nodejs-mongodb-1
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:openshift.io/deployment-config.name: {}
+            f:openshift.io/deployment.name: {}
+          f:labels:
+            .: {}
+            f:openshift.io/deployer-pod-for.name: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"a8946750-3452-4326-b863-c523e053e6cd"}:
+              .: {}
+              f:apiVersion: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:activeDeadlineSeconds: {}
+          f:containers:
+            k:{"name":"deployment"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"OPENSHIFT_DEPLOYMENT_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"OPENSHIFT_DEPLOYMENT_NAMESPACE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:serviceAccount: {}
+          f:serviceAccountName: {}
+          f:shareProcessNamespace: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: openshift-controller-manager
+      operation: Update
+      time: "2021-09-01T20:22:32Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:k8s.v1.cni.cncf.io/network-status: {}
+            f:k8s.v1.cni.cncf.io/networks-status: {}
+      manager: multus
+      operation: Update
+      time: "2021-09-01T20:22:34Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.130.2.184"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-09-01T20:22:42Z"
+    name: nodejs-mongodb-1-deploy
+    namespace: template
+    ownerReferences:
+    - apiVersion: v1
+      kind: ReplicationController
+      name: nodejs-mongodb-1
+      uid: a8946750-3452-4326-b863-c523e053e6cd
+    resourceVersion: "280327"
+    selfLink: /api/v1/namespaces/template/pods/nodejs-mongodb-1-deploy
+    uid: ca179992-9a74-4573-98c8-90a8bdcf0a4a
+  spec:
+    activeDeadlineSeconds: 21600
+    containers:
+    - env:
+      - name: OPENSHIFT_DEPLOYMENT_NAME
+        value: nodejs-mongodb-1
+      - name: OPENSHIFT_DEPLOYMENT_NAMESPACE
+        value: template
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:82aeaac98215cfaf48c580e2b628d85056c4aaf81143e2a681257c03dffc8ee8
+      imagePullPolicy: IfNotPresent
+      name: deployment
+      resources:
+        limits:
+          cpu: 1500m
+          memory: 2Gi
+        requests:
+          cpu: 5m
+          memory: 50Mi
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+        runAsUser: 1000660000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: deployer-token-79p8q
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: deployer-dockercfg-njld8
+    nodeName: na46-5m9nf-worker-0-488z5
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Never
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1000660000
+      seLinuxOptions:
+        level: s0:c26,c5
+    serviceAccount: deployer
+    serviceAccountName: deployer
+    shareProcessNamespace: false
+    terminationGracePeriodSeconds: 10
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    volumes:
+    - name: deployer-token-79p8q
+      secret:
+        defaultMode: 420
+        secretName: deployer-token-79p8q
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:22:32Z"
+      reason: PodCompleted
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:22:42Z"
+      reason: PodCompleted
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:22:42Z"
+      reason: PodCompleted
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:22:32Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://cb3c32011f985c1fec64446a316cfbcbb5bb066f64a914c2235928983729c8b8
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:82aeaac98215cfaf48c580e2b628d85056c4aaf81143e2a681257c03dffc8ee8
+      imageID: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:82aeaac98215cfaf48c580e2b628d85056c4aaf81143e2a681257c03dffc8ee8
+      lastState: {}
+      name: deployment
+      ready: false
+      restartCount: 0
+      started: false
+      state:
+        terminated:
+          containerID: cri-o://cb3c32011f985c1fec64446a316cfbcbb5bb066f64a914c2235928983729c8b8
+          exitCode: 0
+          finishedAt: "2021-09-01T20:22:42Z"
+          reason: Completed
+          startedAt: "2021-09-01T20:22:34Z"
+    hostIP: 10.0.2.210
+    phase: Succeeded
+    podIP: 10.130.2.184
+    podIPs:
+    - ip: 10.130.2.184
+    qosClass: Burstable
+    startTime: "2021-09-01T20:22:32Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      k8s.v1.cni.cncf.io/network-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.130.2.185"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      k8s.v1.cni.cncf.io/networks-status: |-
+        [{
+            "name": "",
+            "interface": "eth0",
+            "ips": [
+                "10.130.2.185"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu request for container nodejs-mongodb; cpu limit for container nodejs-mongodb'
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: nodejs-mongodb
+      openshift.io/deployment.name: nodejs-mongodb-1
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/scc: restricted
+    creationTimestamp: "2021-09-01T20:22:35Z"
+    generateName: nodejs-mongodb-1-
+    labels:
+      deployment: nodejs-mongodb-1
+      deploymentconfig: nodejs-mongodb
+      name: nodejs-mongodb
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:openshift.io/deployment-config.latest-version: {}
+            f:openshift.io/deployment-config.name: {}
+            f:openshift.io/deployment.name: {}
+            f:openshift.io/generated-by: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:deployment: {}
+            f:deploymentconfig: {}
+            f:name: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"a8946750-3452-4326-b863-c523e053e6cd"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"nodejs-mongodb"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"DATABASE_SERVICE_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"MONGODB_ADMIN_PASSWORD"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:secretKeyRef:
+                      .: {}
+                      f:key: {}
+                      f:name: {}
+                k:{"name":"MONGODB_DATABASE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"MONGODB_PASSWORD"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:secretKeyRef:
+                      .: {}
+                      f:key: {}
+                      f:name: {}
+                k:{"name":"MONGODB_USER"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:secretKeyRef:
+                      .: {}
+                      f:key: {}
+                      f:name: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:livenessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:initialDelaySeconds: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":8080,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+              f:readinessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:initialDelaySeconds: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:resources:
+                .: {}
+                f:limits:
+                  .: {}
+                  f:memory: {}
+                f:requests:
+                  .: {}
+                  f:memory: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-09-01T20:22:35Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:k8s.v1.cni.cncf.io/network-status: {}
+            f:k8s.v1.cni.cncf.io/networks-status: {}
+      manager: multus
+      operation: Update
+      time: "2021-09-01T20:22:37Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.130.2.185"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-09-01T20:22:42Z"
+    name: nodejs-mongodb-1-qb6vs
+    namespace: template
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicationController
+      name: nodejs-mongodb-1
+      uid: a8946750-3452-4326-b863-c523e053e6cd
+    resourceVersion: "280322"
+    selfLink: /api/v1/namespaces/template/pods/nodejs-mongodb-1-qb6vs
+    uid: 4f624591-aa30-4166-8235-ca97554b2ebf
+  spec:
+    containers:
+    - env:
+      - name: DATABASE_SERVICE_NAME
+        value: mongodb
+      - name: MONGODB_USER
+        valueFrom:
+          secretKeyRef:
+            key: database-user
+            name: nodejs-mongodb
+      - name: MONGODB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            key: database-password
+            name: nodejs-mongodb
+      - name: MONGODB_DATABASE
+        value: mongodb
+      - name: MONGODB_ADMIN_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            key: database-admin-password
+            name: nodejs-mongodb
+      image: image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb@sha256:dd8f1acf923358f0fe4a7f089dcd714b227536f6acb5ebf1ecd839275629cc9c
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: 8080
+          scheme: HTTP
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 3
+      name: nodejs-mongodb
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: 8080
+          scheme: HTTP
+        initialDelaySeconds: 3
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 3
+      resources:
+        limits:
+          cpu: 1500m
+          memory: 512Mi
+        requests:
+          cpu: 5m
+          memory: 512Mi
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+        runAsUser: 1000660000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-qckr5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: default-dockercfg-45vbn
+    nodeName: na46-5m9nf-worker-0-488z5
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1000660000
+      seLinuxOptions:
+        level: s0:c26,c5
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    volumes:
+    - name: default-token-qckr5
+      secret:
+        defaultMode: 420
+        secretName: default-token-qckr5
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:22:35Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:22:42Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:22:42Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-01T20:22:35Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://a8b0187d5f97ef49756f92e91ca72a92662a347a776e2acc77504d62465ccaf8
+      image: image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb@sha256:dd8f1acf923358f0fe4a7f089dcd714b227536f6acb5ebf1ecd839275629cc9c
+      imageID: image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb@sha256:dd8f1acf923358f0fe4a7f089dcd714b227536f6acb5ebf1ecd839275629cc9c
+      lastState: {}
+      name: nodejs-mongodb
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-09-01T20:22:38Z"
+    hostIP: 10.0.2.210
+    phase: Running
+    podIP: 10.130.2.185
+    podIPs:
+    - ip: 10.130.2.185
+    qosClass: Burstable
+    startTime: "2021-09-01T20:22:35Z"
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      openshift.io/deployer-pod.completed-at: 2021-09-01 20:22:11 +0000 UTC
+      openshift.io/deployer-pod.created-at: 2021-09-01 20:21:42 +0000 UTC
+      openshift.io/deployer-pod.name: mongodb-1-deploy
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: mongodb
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: "1"
+      openshift.io/deployment.status-reason: config change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"mongodb","namespace":"template","selfLink":"/apis/apps.openshift.io/v1/namespaces/template/deploymentconfigs/mongodb","uid":"60367947-8f2f-437d-ac98-0e013e609e7e","resourceVersion":"279719","generation":2,"creationTimestamp":"2021-09-01T20:21:42Z","labels":{"app":"nodejs-mongodb","template":"nodejs-mongodb"},"annotations":{"description":"Defines how to deploy the database","openshift.io/generated-by":"OpenShiftNewApp","template.alpha.openshift.io/wait-for-ready":"true"},"managedFields":[{"manager":"oc","operation":"Update","apiVersion":"apps.openshift.io/v1","time":"2021-09-01T20:21:42Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:description":{},"f:openshift.io/generated-by":{},"f:template.alpha.openshift.io/wait-for-ready":{}},"f:labels":{".":{},"f:app":{},"f:template":{}}},"f:spec":{"f:replicas":{},"f:selector":{".":{},"f:name":{}},"f:strategy":{"f:activeDeadlineSeconds":{},"f:recreateParams":{".":{},"f:timeoutSeconds":{}},"f:type":{}},"f:template":{".":{},"f:metadata":{".":{},"f:annotations":{".":{},"f:openshift.io/generated-by":{}},"f:creationTimestamp":{},"f:labels":{".":{},"f:name":{}},"f:name":{}},"f:spec":{".":{},"f:containers":{".":{},"k:{\"name\":\"mongodb\"}":{".":{},"f:env":{".":{},"k:{\"name\":\"MONGODB_ADMIN_PASSWORD\"}":{".":{},"f:name":{},"f:valueFrom":{".":{},"f:secretKeyRef":{".":{},"f:key":{},"f:name":{}}}},"k:{\"name\":\"MONGODB_DATABASE\"}":{".":{},"f:name":{},"f:value":{}},"k:{\"name\":\"MONGODB_PASSWORD\"}":{".":{},"f:name":{},"f:valueFrom":{".":{},"f:secretKeyRef":{".":{},"f:key":{},"f:name":{}}}},"k:{\"name\":\"MONGODB_USER\"}":{".":{},"f:name":{},"f:valueFrom":{".":{},"f:secretKeyRef":{".":{},"f:key":{},"f:name":{}}}}},"f:imagePullPolicy":{},"f:livenessProbe":{".":{},"f:failureThreshold":{},"f:initialDelaySeconds":{},"f:periodSeconds":{},"f:successThreshold":{},"f:tcpSocket":{".":{},"f:port":{}},"f:timeoutSeconds":{}},"f:name":{},"f:ports":{".":{},"k:{\"containerPort\":27017,\"protocol\":\"TCP\"}":{".":{},"f:containerPort":{},"f:protocol":{}}},"f:readinessProbe":{".":{},"f:exec":{".":{},"f:command":{}},"f:failureThreshold":{},"f:initialDelaySeconds":{},"f:periodSeconds":{},"f:successThreshold":{},"f:timeoutSeconds":{}},"f:resources":{".":{},"f:limits":{".":{},"f:memory":{}}},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{},"f:volumeMounts":{".":{},"k:{\"mountPath\":\"/var/lib/mongodb/data\"}":{".":{},"f:mountPath":{},"f:name":{}}}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{},"f:volumes":{".":{},"k:{\"name\":\"mongodb-data\"}":{".":{},"f:emptyDir":{},"f:name":{}}}}}}}},{"manager":"openshift-controller-manager","operation":"Update","apiVersion":"apps.openshift.io/v1","time":"2021-09-01T20:21:42Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{"f:template":{"f:spec":{"f:containers":{"k:{\"name\":\"mongodb\"}":{"f:image":{}}}}},"f:triggers":{}},"f:status":{"f:details":{".":{},"f:causes":{},"f:message":{}},"f:latestVersion":{}}}}]},"spec":{"strategy":{"type":"Recreate","recreateParams":{"timeoutSeconds":600},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["mongodb"],"from":{"kind":"ImageStreamTag","namespace":"openshift","name":"mongodb:3.6"},"lastTriggeredImage":"image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:8dc9932eabd30f2ee4d0b882500c65b48f3c2fbbd85bfd51d0d18410af404a39"}},{"type":"ConfigChange"}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"name":"mongodb"},"template":{"metadata":{"name":"mongodb","creationTimestamp":null,"labels":{"name":"mongodb"},"annotations":{"openshift.io/generated-by":"OpenShiftNewApp"}},"spec":{"volumes":[{"name":"mongodb-data","emptyDir":{}}],"containers":[{"name":"mongodb","image":"image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:8dc9932eabd30f2ee4d0b882500c65b48f3c2fbbd85bfd51d0d18410af404a39","ports":[{"containerPort":27017,"protocol":"TCP"}],"env":[{"name":"MONGODB_USER","valueFrom":{"secretKeyRef":{"name":"nodejs-mongodb","key":"database-user"}}},{"name":"MONGODB_PASSWORD","valueFrom":{"secretKeyRef":{"name":"nodejs-mongodb","key":"database-password"}}},{"name":"MONGODB_DATABASE","value":"mongodb"},{"name":"MONGODB_ADMIN_PASSWORD","valueFrom":{"secretKeyRef":{"name":"nodejs-mongodb","key":"database-admin-password"}}}],"resources":{"limits":{"memory":"512Mi"}},"volumeMounts":[{"name":"mongodb-data","mountPath":"/var/lib/mongodb/data"}],"livenessProbe":{"tcpSocket":{"port":27017},"initialDelaySeconds":30,"timeoutSeconds":1,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"readinessProbe":{"exec":{"command":["/bin/sh","-i","-c","mongo 127.0.0.1:27017/$MONGODB_DATABASE -u $MONGODB_USER -p $MONGODB_PASSWORD --eval=\"quit()\""]},"initialDelaySeconds":3,"timeoutSeconds":1,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":1,"observedGeneration":0,"replicas":0,"updatedReplicas":0,"availableReplicas":0,"unavailableReplicas":0,"details":{"message":"config change","causes":[{"type":"ConfigChange"}]}}}
+    creationTimestamp: "2021-09-01T20:21:42Z"
+    generation: 2
+    labels:
+      app: nodejs-mongodb
+      openshift.io/deployment-config.name: mongodb
+      template: nodejs-mongodb
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:availableReplicas: {}
+          f:fullyLabeledReplicas: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-09-01T20:22:11Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:openshift.io/deployer-pod.completed-at: {}
+            f:openshift.io/deployer-pod.created-at: {}
+            f:openshift.io/deployer-pod.name: {}
+            f:openshift.io/deployment-config.latest-version: {}
+            f:openshift.io/deployment-config.name: {}
+            f:openshift.io/deployment.phase: {}
+            f:openshift.io/deployment.replicas: {}
+            f:openshift.io/deployment.status-reason: {}
+            f:openshift.io/encoded-deployment-config: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:openshift.io/deployment-config.name: {}
+            f:template: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"60367947-8f2f-437d-ac98-0e013e609e7e"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:replicas: {}
+          f:selector:
+            .: {}
+            f:deployment: {}
+            f:deploymentconfig: {}
+            f:name: {}
+          f:template:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:openshift.io/deployment-config.latest-version: {}
+                f:openshift.io/deployment-config.name: {}
+                f:openshift.io/deployment.name: {}
+                f:openshift.io/generated-by: {}
+              f:creationTimestamp: {}
+              f:labels:
+                .: {}
+                f:deployment: {}
+                f:deploymentconfig: {}
+                f:name: {}
+            f:spec:
+              .: {}
+              f:containers:
+                .: {}
+                k:{"name":"mongodb"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"MONGODB_ADMIN_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                    k:{"name":"MONGODB_DATABASE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MONGODB_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                    k:{"name":"MONGODB_USER"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:livenessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:tcpSocket:
+                      .: {}
+                      f:port: {}
+                    f:timeoutSeconds: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":27017,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:exec:
+                      .: {}
+                      f:command: {}
+                    f:failureThreshold: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:memory: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/var/lib/mongodb/data"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"mongodb-data"}:
+                  .: {}
+                  f:emptyDir: {}
+                  f:name: {}
+      manager: openshift-controller-manager
+      operation: Update
+      time: "2021-09-01T20:22:12Z"
+    name: mongodb-1
+    namespace: template
+    ownerReferences:
+    - apiVersion: apps.openshift.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DeploymentConfig
+      name: mongodb
+      uid: 60367947-8f2f-437d-ac98-0e013e609e7e
+    resourceVersion: "280021"
+    selfLink: /api/v1/namespaces/template/replicationcontrollers/mongodb-1
+    uid: d1da514a-90fd-409c-a759-b6649e012d3f
+  spec:
+    replicas: 1
+    selector:
+      deployment: mongodb-1
+      deploymentconfig: mongodb
+      name: mongodb
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "1"
+          openshift.io/deployment-config.name: mongodb
+          openshift.io/deployment.name: mongodb-1
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          deployment: mongodb-1
+          deploymentconfig: mongodb
+          name: mongodb
+      spec:
+        containers:
+        - env:
+          - name: MONGODB_USER
+            valueFrom:
+              secretKeyRef:
+                key: database-user
+                name: nodejs-mongodb
+          - name: MONGODB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-password
+                name: nodejs-mongodb
+          - name: MONGODB_DATABASE
+            value: mongodb
+          - name: MONGODB_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-admin-password
+                name: nodejs-mongodb
+          image: image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:8dc9932eabd30f2ee4d0b882500c65b48f3c2fbbd85bfd51d0d18410af404a39
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 27017
+            timeoutSeconds: 1
+          name: mongodb
+          ports:
+          - containerPort: 27017
+            protocol: TCP
+          readinessProbe:
+            exec:
+              command:
+              - /bin/sh
+              - -i
+              - -c
+              - mongo 127.0.0.1:27017/$MONGODB_DATABASE -u $MONGODB_USER -p $MONGODB_PASSWORD --eval="quit()"
+            failureThreshold: 3
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              memory: 512Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /var/lib/mongodb/data
+            name: mongodb-data
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - emptyDir: {}
+          name: mongodb-data
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      openshift.io/deployer-pod.completed-at: 2021-09-01 20:22:42 +0000 UTC
+      openshift.io/deployer-pod.created-at: 2021-09-01 20:22:32 +0000 UTC
+      openshift.io/deployer-pod.name: nodejs-mongodb-1-deploy
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: nodejs-mongodb
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: "1"
+      openshift.io/deployment.status-reason: config change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"nodejs-mongodb","namespace":"template","selfLink":"/apis/apps.openshift.io/v1/namespaces/template/deploymentconfigs/nodejs-mongodb","uid":"21f7ddc0-f296-43a0-a177-9bb39bbdc99e","resourceVersion":"280215","generation":2,"creationTimestamp":"2021-09-01T20:21:42Z","labels":{"app":"nodejs-mongodb","template":"nodejs-mongodb"},"annotations":{"description":"Defines how to deploy the application server","openshift.io/generated-by":"OpenShiftNewApp","template.alpha.openshift.io/wait-for-ready":"true"},"managedFields":[{"manager":"oc","operation":"Update","apiVersion":"apps.openshift.io/v1","time":"2021-09-01T20:21:42Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:description":{},"f:openshift.io/generated-by":{},"f:template.alpha.openshift.io/wait-for-ready":{}},"f:labels":{".":{},"f:app":{},"f:template":{}}},"f:spec":{"f:replicas":{},"f:selector":{".":{},"f:name":{}},"f:strategy":{"f:activeDeadlineSeconds":{},"f:recreateParams":{".":{},"f:timeoutSeconds":{}},"f:type":{}},"f:template":{".":{},"f:metadata":{".":{},"f:annotations":{".":{},"f:openshift.io/generated-by":{}},"f:creationTimestamp":{},"f:labels":{".":{},"f:name":{}},"f:name":{}},"f:spec":{".":{},"f:containers":{".":{},"k:{\"name\":\"nodejs-mongodb\"}":{".":{},"f:env":{".":{},"k:{\"name\":\"DATABASE_SERVICE_NAME\"}":{".":{},"f:name":{},"f:value":{}},"k:{\"name\":\"MONGODB_ADMIN_PASSWORD\"}":{".":{},"f:name":{},"f:valueFrom":{".":{},"f:secretKeyRef":{".":{},"f:key":{},"f:name":{}}}},"k:{\"name\":\"MONGODB_DATABASE\"}":{".":{},"f:name":{},"f:value":{}},"k:{\"name\":\"MONGODB_PASSWORD\"}":{".":{},"f:name":{},"f:valueFrom":{".":{},"f:secretKeyRef":{".":{},"f:key":{},"f:name":{}}}},"k:{\"name\":\"MONGODB_USER\"}":{".":{},"f:name":{},"f:valueFrom":{".":{},"f:secretKeyRef":{".":{},"f:key":{},"f:name":{}}}}},"f:imagePullPolicy":{},"f:livenessProbe":{".":{},"f:failureThreshold":{},"f:httpGet":{".":{},"f:path":{},"f:port":{},"f:scheme":{}},"f:initialDelaySeconds":{},"f:periodSeconds":{},"f:successThreshold":{},"f:timeoutSeconds":{}},"f:name":{},"f:ports":{".":{},"k:{\"containerPort\":8080,\"protocol\":\"TCP\"}":{".":{},"f:containerPort":{},"f:protocol":{}}},"f:readinessProbe":{".":{},"f:failureThreshold":{},"f:httpGet":{".":{},"f:path":{},"f:port":{},"f:scheme":{}},"f:initialDelaySeconds":{},"f:periodSeconds":{},"f:successThreshold":{},"f:timeoutSeconds":{}},"f:resources":{".":{},"f:limits":{".":{},"f:memory":{}}},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}}}},{"manager":"openshift-controller-manager","operation":"Update","apiVersion":"apps.openshift.io/v1","time":"2021-09-01T20:22:32Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{"f:template":{"f:spec":{"f:containers":{"k:{\"name\":\"nodejs-mongodb\"}":{"f:image":{}}}}},"f:triggers":{}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"Available\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:status":{},"f:type":{}}},"f:details":{".":{},"f:causes":{},"f:message":{}},"f:latestVersion":{},"f:observedGeneration":{}}}}]},"spec":{"strategy":{"type":"Recreate","recreateParams":{"timeoutSeconds":600},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["nodejs-mongodb"],"from":{"kind":"ImageStreamTag","namespace":"template","name":"nodejs-mongodb:latest"},"lastTriggeredImage":"image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb@sha256:dd8f1acf923358f0fe4a7f089dcd714b227536f6acb5ebf1ecd839275629cc9c"}},{"type":"ConfigChange"}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"name":"nodejs-mongodb"},"template":{"metadata":{"name":"nodejs-mongodb","creationTimestamp":null,"labels":{"name":"nodejs-mongodb"},"annotations":{"openshift.io/generated-by":"OpenShiftNewApp"}},"spec":{"containers":[{"name":"nodejs-mongodb","image":"image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb@sha256:dd8f1acf923358f0fe4a7f089dcd714b227536f6acb5ebf1ecd839275629cc9c","ports":[{"containerPort":8080,"protocol":"TCP"}],"env":[{"name":"DATABASE_SERVICE_NAME","value":"mongodb"},{"name":"MONGODB_USER","valueFrom":{"secretKeyRef":{"name":"nodejs-mongodb","key":"database-user"}}},{"name":"MONGODB_PASSWORD","valueFrom":{"secretKeyRef":{"name":"nodejs-mongodb","key":"database-password"}}},{"name":"MONGODB_DATABASE","value":"mongodb"},{"name":"MONGODB_ADMIN_PASSWORD","valueFrom":{"secretKeyRef":{"name":"nodejs-mongodb","key":"database-admin-password"}}}],"resources":{"limits":{"memory":"512Mi"}},"livenessProbe":{"httpGet":{"path":"/","port":8080,"scheme":"HTTP"},"initialDelaySeconds":30,"timeoutSeconds":3,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"readinessProbe":{"httpGet":{"path":"/","port":8080,"scheme":"HTTP"},"initialDelaySeconds":3,"timeoutSeconds":3,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":1,"observedGeneration":1,"replicas":0,"updatedReplicas":0,"availableReplicas":0,"unavailableReplicas":0,"details":{"message":"config change","causes":[{"type":"ConfigChange"}]},"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2021-09-01T20:21:42Z","lastTransitionTime":"2021-09-01T20:21:42Z","message":"Deployment config does not have minimum availability."}]}}
+    creationTimestamp: "2021-09-01T20:22:32Z"
+    generation: 2
+    labels:
+      app: nodejs-mongodb
+      openshift.io/deployment-config.name: nodejs-mongodb
+      template: nodejs-mongodb
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:availableReplicas: {}
+          f:fullyLabeledReplicas: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-09-01T20:22:42Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:openshift.io/deployer-pod.completed-at: {}
+            f:openshift.io/deployer-pod.created-at: {}
+            f:openshift.io/deployer-pod.name: {}
+            f:openshift.io/deployment-config.latest-version: {}
+            f:openshift.io/deployment-config.name: {}
+            f:openshift.io/deployment.phase: {}
+            f:openshift.io/deployment.replicas: {}
+            f:openshift.io/deployment.status-reason: {}
+            f:openshift.io/encoded-deployment-config: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:openshift.io/deployment-config.name: {}
+            f:template: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"21f7ddc0-f296-43a0-a177-9bb39bbdc99e"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:replicas: {}
+          f:selector:
+            .: {}
+            f:deployment: {}
+            f:deploymentconfig: {}
+            f:name: {}
+          f:template:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:openshift.io/deployment-config.latest-version: {}
+                f:openshift.io/deployment-config.name: {}
+                f:openshift.io/deployment.name: {}
+                f:openshift.io/generated-by: {}
+              f:creationTimestamp: {}
+              f:labels:
+                .: {}
+                f:deployment: {}
+                f:deploymentconfig: {}
+                f:name: {}
+            f:spec:
+              .: {}
+              f:containers:
+                .: {}
+                k:{"name":"nodejs-mongodb"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"DATABASE_SERVICE_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MONGODB_ADMIN_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                    k:{"name":"MONGODB_DATABASE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MONGODB_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                    k:{"name":"MONGODB_USER"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:livenessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8080,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:memory: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+      manager: openshift-controller-manager
+      operation: Update
+      time: "2021-09-01T20:22:42Z"
+    name: nodejs-mongodb-1
+    namespace: template
+    ownerReferences:
+    - apiVersion: apps.openshift.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DeploymentConfig
+      name: nodejs-mongodb
+      uid: 21f7ddc0-f296-43a0-a177-9bb39bbdc99e
+    resourceVersion: "280328"
+    selfLink: /api/v1/namespaces/template/replicationcontrollers/nodejs-mongodb-1
+    uid: a8946750-3452-4326-b863-c523e053e6cd
+  spec:
+    replicas: 1
+    selector:
+      deployment: nodejs-mongodb-1
+      deploymentconfig: nodejs-mongodb
+      name: nodejs-mongodb
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "1"
+          openshift.io/deployment-config.name: nodejs-mongodb
+          openshift.io/deployment.name: nodejs-mongodb-1
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          deployment: nodejs-mongodb-1
+          deploymentconfig: nodejs-mongodb
+          name: nodejs-mongodb
+      spec:
+        containers:
+        - env:
+          - name: DATABASE_SERVICE_NAME
+            value: mongodb
+          - name: MONGODB_USER
+            valueFrom:
+              secretKeyRef:
+                key: database-user
+                name: nodejs-mongodb
+          - name: MONGODB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-password
+                name: nodejs-mongodb
+          - name: MONGODB_DATABASE
+            value: mongodb
+          - name: MONGODB_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-admin-password
+                name: nodejs-mongodb
+          image: image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb@sha256:dd8f1acf923358f0fe4a7f089dcd714b227536f6acb5ebf1ecd839275629cc9c
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 3
+          name: nodejs-mongodb
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 3
+          resources:
+            limits:
+              memory: 512Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      description: Exposes the database server
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: "2021-09-01T20:21:42Z"
+    labels:
+      app: nodejs-mongodb
+      template: nodejs-mongodb
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:description: {}
+            f:openshift.io/generated-by: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:template: {}
+        f:spec:
+          f:ports:
+            .: {}
+            k:{"port":27017,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:selector:
+            .: {}
+            f:name: {}
+          f:sessionAffinity: {}
+          f:type: {}
+      manager: oc
+      operation: Update
+      time: "2021-09-01T20:21:42Z"
+    name: mongodb
+    namespace: template
+    resourceVersion: "279707"
+    selfLink: /api/v1/namespaces/template/services/mongodb
+    uid: 40c86c48-2b17-4781-8a8a-468f1ae56a84
+  spec:
+    clusterIP: 172.30.134.59
+    ports:
+    - name: mongodb
+      port: 27017
+      protocol: TCP
+      targetPort: 27017
+    selector:
+      name: mongodb
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      description: Exposes and load balances the application pods
+      openshift.io/generated-by: OpenShiftNewApp
+      service.alpha.openshift.io/dependencies: '[{"name": "mongodb", "kind": "Service"}]'
+    creationTimestamp: "2021-09-01T20:21:42Z"
+    labels:
+      app: nodejs-mongodb
+      template: nodejs-mongodb
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:description: {}
+            f:openshift.io/generated-by: {}
+            f:service.alpha.openshift.io/dependencies: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:template: {}
+        f:spec:
+          f:ports:
+            .: {}
+            k:{"port":8080,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:selector:
+            .: {}
+            f:name: {}
+          f:sessionAffinity: {}
+          f:type: {}
+      manager: oc
+      operation: Update
+      time: "2021-09-01T20:21:42Z"
+    name: nodejs-mongodb
+    namespace: template
+    resourceVersion: "279698"
+    selfLink: /api/v1/namespaces/template/services/nodejs-mongodb
+    uid: d51979a3-7580-4730-8377-75fb13c7db3c
+  spec:
+    clusterIP: 172.30.254.157
+    ports:
+    - name: web
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      name: nodejs-mongodb
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: apps.openshift.io/v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+      description: Defines how to deploy the database
+      openshift.io/generated-by: OpenShiftNewApp
+      template.alpha.openshift.io/wait-for-ready: "true"
+    creationTimestamp: "2021-09-01T20:21:42Z"
+    generation: 2
+    labels:
+      app: nodejs-mongodb
+      template: nodejs-mongodb
+    managedFields:
+    - apiVersion: apps.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:description: {}
+            f:openshift.io/generated-by: {}
+            f:template.alpha.openshift.io/wait-for-ready: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:template: {}
+        f:spec:
+          f:replicas: {}
+          f:selector:
+            .: {}
+            f:name: {}
+          f:strategy:
+            f:activeDeadlineSeconds: {}
+            f:recreateParams:
+              .: {}
+              f:timeoutSeconds: {}
+            f:type: {}
+          f:template:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:openshift.io/generated-by: {}
+              f:creationTimestamp: {}
+              f:labels:
+                .: {}
+                f:name: {}
+              f:name: {}
+            f:spec:
+              .: {}
+              f:containers:
+                .: {}
+                k:{"name":"mongodb"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"MONGODB_ADMIN_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                    k:{"name":"MONGODB_DATABASE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MONGODB_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                    k:{"name":"MONGODB_USER"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                  f:imagePullPolicy: {}
+                  f:livenessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:tcpSocket:
+                      .: {}
+                      f:port: {}
+                    f:timeoutSeconds: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":27017,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:exec:
+                      .: {}
+                      f:command: {}
+                    f:failureThreshold: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:memory: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/var/lib/mongodb/data"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"mongodb-data"}:
+                  .: {}
+                  f:emptyDir: {}
+                  f:name: {}
+      manager: oc
+      operation: Update
+      time: "2021-09-01T20:21:42Z"
+    - apiVersion: apps.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:template:
+            f:spec:
+              f:containers:
+                k:{"name":"mongodb"}:
+                  f:image: {}
+          f:triggers: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:details:
+            .: {}
+            f:causes: {}
+            f:message: {}
+          f:latestVersion: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:unavailableReplicas: {}
+          f:updatedReplicas: {}
+      manager: openshift-controller-manager
+      operation: Update
+      time: "2021-09-01T20:22:12Z"
+    name: mongodb
+    namespace: template
+    resourceVersion: "280022"
+    selfLink: /apis/apps.openshift.io/v1/namespaces/template/deploymentconfigs/mongodb
+    uid: 60367947-8f2f-437d-ac98-0e013e609e7e
+  spec:
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      name: mongodb
+    strategy:
+      activeDeadlineSeconds: 21600
+      recreateParams:
+        timeoutSeconds: 600
+      resources: {}
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          name: mongodb
+        name: mongodb
+      spec:
+        containers:
+        - env:
+          - name: MONGODB_USER
+            valueFrom:
+              secretKeyRef:
+                key: database-user
+                name: nodejs-mongodb
+          - name: MONGODB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-password
+                name: nodejs-mongodb
+          - name: MONGODB_DATABASE
+            value: mongodb
+          - name: MONGODB_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-admin-password
+                name: nodejs-mongodb
+          image: image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:8dc9932eabd30f2ee4d0b882500c65b48f3c2fbbd85bfd51d0d18410af404a39
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 27017
+            timeoutSeconds: 1
+          name: mongodb
+          ports:
+          - containerPort: 27017
+            protocol: TCP
+          readinessProbe:
+            exec:
+              command:
+              - /bin/sh
+              - -i
+              - -c
+              - mongo 127.0.0.1:27017/$MONGODB_DATABASE -u $MONGODB_USER -p $MONGODB_PASSWORD --eval="quit()"
+            failureThreshold: 3
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              memory: 512Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /var/lib/mongodb/data
+            name: mongodb-data
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - emptyDir: {}
+          name: mongodb-data
+    test: false
+    triggers:
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+        - mongodb
+        from:
+          kind: ImageStreamTag
+          name: mongodb:3.6
+          namespace: openshift
+        lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/openshift/mongodb@sha256:8dc9932eabd30f2ee4d0b882500c65b48f3c2fbbd85bfd51d0d18410af404a39
+      type: ImageChange
+    - type: ConfigChange
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-09-01T20:22:11Z"
+      lastUpdateTime: "2021-09-01T20:22:11Z"
+      message: Deployment config has minimum availability.
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-09-01T20:22:12Z"
+      lastUpdateTime: "2021-09-01T20:22:12Z"
+      message: replication controller "mongodb-1" successfully rolled out
+      reason: NewReplicationControllerAvailable
+      status: "True"
+      type: Progressing
+    details:
+      causes:
+      - type: ConfigChange
+      message: config change
+    latestVersion: 1
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 1
+    unavailableReplicas: 0
+    updatedReplicas: 1
+- apiVersion: apps.openshift.io/v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+      description: Defines how to deploy the application server
+      openshift.io/generated-by: OpenShiftNewApp
+      template.alpha.openshift.io/wait-for-ready: "true"
+    creationTimestamp: "2021-09-01T20:21:42Z"
+    generation: 2
+    labels:
+      app: nodejs-mongodb
+      template: nodejs-mongodb
+    managedFields:
+    - apiVersion: apps.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:description: {}
+            f:openshift.io/generated-by: {}
+            f:template.alpha.openshift.io/wait-for-ready: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:template: {}
+        f:spec:
+          f:replicas: {}
+          f:selector:
+            .: {}
+            f:name: {}
+          f:strategy:
+            f:activeDeadlineSeconds: {}
+            f:recreateParams:
+              .: {}
+              f:timeoutSeconds: {}
+            f:type: {}
+          f:template:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:openshift.io/generated-by: {}
+              f:creationTimestamp: {}
+              f:labels:
+                .: {}
+                f:name: {}
+              f:name: {}
+            f:spec:
+              .: {}
+              f:containers:
+                .: {}
+                k:{"name":"nodejs-mongodb"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"DATABASE_SERVICE_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MONGODB_ADMIN_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                    k:{"name":"MONGODB_DATABASE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MONGODB_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                    k:{"name":"MONGODB_USER"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:secretKeyRef:
+                          .: {}
+                          f:key: {}
+                          f:name: {}
+                  f:imagePullPolicy: {}
+                  f:livenessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8080,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:memory: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+      manager: oc
+      operation: Update
+      time: "2021-09-01T20:21:42Z"
+    - apiVersion: apps.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:template:
+            f:spec:
+              f:containers:
+                k:{"name":"nodejs-mongodb"}:
+                  f:image: {}
+          f:triggers: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:details:
+            .: {}
+            f:causes: {}
+            f:message: {}
+          f:latestVersion: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:unavailableReplicas: {}
+          f:updatedReplicas: {}
+      manager: openshift-controller-manager
+      operation: Update
+      time: "2021-09-01T20:22:42Z"
+    name: nodejs-mongodb
+    namespace: template
+    resourceVersion: "280329"
+    selfLink: /apis/apps.openshift.io/v1/namespaces/template/deploymentconfigs/nodejs-mongodb
+    uid: 21f7ddc0-f296-43a0-a177-9bb39bbdc99e
+  spec:
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      name: nodejs-mongodb
+    strategy:
+      activeDeadlineSeconds: 21600
+      recreateParams:
+        timeoutSeconds: 600
+      resources: {}
+      type: Recreate
+    template:
+      metadata:
+        annotations:
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          name: nodejs-mongodb
+        name: nodejs-mongodb
+      spec:
+        containers:
+        - env:
+          - name: DATABASE_SERVICE_NAME
+            value: mongodb
+          - name: MONGODB_USER
+            valueFrom:
+              secretKeyRef:
+                key: database-user
+                name: nodejs-mongodb
+          - name: MONGODB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-password
+                name: nodejs-mongodb
+          - name: MONGODB_DATABASE
+            value: mongodb
+          - name: MONGODB_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-admin-password
+                name: nodejs-mongodb
+          image: image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb@sha256:dd8f1acf923358f0fe4a7f089dcd714b227536f6acb5ebf1ecd839275629cc9c
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 3
+          name: nodejs-mongodb
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 3
+          resources:
+            limits:
+              memory: 512Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+    test: false
+    triggers:
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+        - nodejs-mongodb
+        from:
+          kind: ImageStreamTag
+          name: nodejs-mongodb:latest
+          namespace: template
+        lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb@sha256:dd8f1acf923358f0fe4a7f089dcd714b227536f6acb5ebf1ecd839275629cc9c
+      type: ImageChange
+    - type: ConfigChange
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-09-01T20:22:42Z"
+      lastUpdateTime: "2021-09-01T20:22:42Z"
+      message: Deployment config has minimum availability.
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-09-01T20:22:42Z"
+      lastUpdateTime: "2021-09-01T20:22:42Z"
+      message: replication controller "nodejs-mongodb-1" successfully rolled out
+      reason: NewReplicationControllerAvailable
+      status: "True"
+      type: Progressing
+    details:
+      causes:
+      - type: ConfigChange
+      message: config change
+    latestVersion: 1
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 1
+    unavailableReplicas: 0
+    updatedReplicas: 1
+- apiVersion: build.openshift.io/v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+      description: Defines how to build the application
+      openshift.io/generated-by: OpenShiftNewApp
+      template.alpha.openshift.io/wait-for-ready: "true"
+    creationTimestamp: "2021-09-01T20:21:42Z"
+    labels:
+      app: nodejs-mongodb
+      template: nodejs-mongodb
+    managedFields:
+    - apiVersion: build.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:description: {}
+            f:openshift.io/generated-by: {}
+            f:template.alpha.openshift.io/wait-for-ready: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:template: {}
+        f:spec:
+          f:output:
+            f:to:
+              .: {}
+              f:kind: {}
+              f:name: {}
+          f:postCommit:
+            f:script: {}
+          f:runPolicy: {}
+          f:source:
+            f:git:
+              .: {}
+              f:uri: {}
+            f:type: {}
+          f:strategy:
+            f:sourceStrategy:
+              .: {}
+              f:env: {}
+              f:from:
+                .: {}
+                f:kind: {}
+                f:name: {}
+                f:namespace: {}
+            f:type: {}
+      manager: oc
+      operation: Update
+      time: "2021-09-01T20:21:42Z"
+    - apiVersion: build.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:triggers: {}
+        f:status:
+          f:lastVersion: {}
+      manager: openshift-apiserver
+      operation: Update
+      time: "2021-09-01T20:21:42Z"
+    name: nodejs-mongodb
+    namespace: template
+    resourceVersion: "279718"
+    selfLink: /apis/build.openshift.io/v1/namespaces/template/buildconfigs/nodejs-mongodb
+    uid: f8f8b4d3-02eb-4199-aef8-4a183d7ea962
+  spec:
+    failedBuildsHistoryLimit: 5
+    nodeSelector: null
+    output:
+      to:
+        kind: ImageStreamTag
+        name: nodejs-mongodb:latest
+    postCommit:
+      script: npm test
+    resources: {}
+    runPolicy: Serial
+    source:
+      git:
+        uri: https://github.com/sclorg/nodejs-ex.git
+      type: Git
+    strategy:
+      sourceStrategy:
+        env:
+        - name: NPM_MIRROR
+          value: https://registry.npmjs.org
+        from:
+          kind: ImageStreamTag
+          name: nodejs:latest
+          namespace: openshift
+      type: Source
+    successfulBuildsHistoryLimit: 5
+    triggers:
+    - imageChange:
+        lastTriggeredImageID: image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:cbee9886f23a0a5d2cb239b07e62a7c6c12a5b21181f467c3e6ce2ae3e69efbc
+      type: ImageChange
+    - type: ConfigChange
+    - github:
+        secret: nXLVwuHUKndAuLPb1R5H5cX4tFOwTEyOCAcsjs5a
+      type: GitHub
+    - generic:
+        secret: IDnXtF2oohDptqBoPhTke6kYI304x2kcFosWkTLF
+      type: Generic
+  status:
+    lastVersion: 1
+- apiVersion: build.openshift.io/v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: nodejs-mongodb
+      openshift.io/build.number: "1"
+      openshift.io/build.pod-name: nodejs-mongodb-1-build
+    creationTimestamp: "2021-09-01T20:21:42Z"
+    labels:
+      app: nodejs-mongodb
+      buildconfig: nodejs-mongodb
+      openshift.io/build-config.name: nodejs-mongodb
+      openshift.io/build.start-policy: Serial
+      template: nodejs-mongodb
+    name: nodejs-mongodb-1
+    namespace: template
+    ownerReferences:
+    - apiVersion: build.openshift.io/v1
+      controller: true
+      kind: BuildConfig
+      name: nodejs-mongodb
+      uid: f8f8b4d3-02eb-4199-aef8-4a183d7ea962
+    resourceVersion: "280228"
+    selfLink: /apis/build.openshift.io/v1/namespaces/template/builds/nodejs-mongodb-1
+    uid: 3cfea72b-b512-4a71-8582-53cf8de15595
+  spec:
+    nodeSelector: null
+    output:
+      pushSecret:
+        name: builder-dockercfg-rjr4x
+      to:
+        kind: ImageStreamTag
+        name: nodejs-mongodb:latest
+    postCommit:
+      script: npm test
+    resources: {}
+    revision:
+      git:
+        author:
+          email: hhorak@redhat.com
+          name: Honza Horak
+        commit: 7b9f57949786059a3fab03b8493279c945770fb0
+        committer:
+          email: noreply@github.com
+          name: GitHub
+        message: 'Merge pull request #249 from multi-arch/master'
+      type: Git
+    serviceAccount: builder
+    source:
+      git:
+        uri: https://github.com/sclorg/nodejs-ex.git
+      type: Git
+    strategy:
+      sourceStrategy:
+        env:
+        - name: NPM_MIRROR
+          value: https://registry.npmjs.org
+        from:
+          kind: DockerImage
+          name: image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:cbee9886f23a0a5d2cb239b07e62a7c6c12a5b21181f467c3e6ce2ae3e69efbc
+        pullSecret:
+          name: builder-dockercfg-rjr4x
+      type: Source
+    triggeredBy:
+    - message: Build configuration change
+  status:
+    completionTimestamp: "2021-09-01T20:22:32Z"
+    conditions:
+    - lastTransitionTime: "2021-09-01T20:21:42Z"
+      lastUpdateTime: "2021-09-01T20:21:42Z"
+      status: "False"
+      type: New
+    - lastTransitionTime: "2021-09-01T20:21:46Z"
+      lastUpdateTime: "2021-09-01T20:21:46Z"
+      status: "False"
+      type: Pending
+    - lastTransitionTime: "2021-09-01T20:22:32Z"
+      lastUpdateTime: "2021-09-01T20:22:32Z"
+      status: "False"
+      type: Running
+    - lastTransitionTime: "2021-09-01T20:22:32Z"
+      lastUpdateTime: "2021-09-01T20:22:32Z"
+      status: "True"
+      type: Complete
+    config:
+      kind: BuildConfig
+      name: nodejs-mongodb
+      namespace: template
+    duration: 50000000000
+    output:
+      to:
+        imageDigest: sha256:dd8f1acf923358f0fe4a7f089dcd714b227536f6acb5ebf1ecd839275629cc9c
+    outputDockerImageReference: image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb:latest
+    phase: Complete
+    stages:
+    - durationMilliseconds: 502
+      name: FetchInputs
+      startTime: "2021-09-01T20:21:46Z"
+      steps:
+      - durationMilliseconds: 502
+        name: FetchGitSource
+        startTime: "2021-09-01T20:21:46Z"
+    - durationMilliseconds: 30110
+      name: PullImages
+      startTime: "2021-09-01T20:21:49Z"
+      steps:
+      - durationMilliseconds: 30110
+        name: PullBaseImage
+        startTime: "2021-09-01T20:21:49Z"
+    - durationMilliseconds: 11994
+      name: Build
+      startTime: "2021-09-01T20:22:19Z"
+      steps:
+      - durationMilliseconds: 11994
+        name: DockerBuild
+        startTime: "2021-09-01T20:22:19Z"
+    - durationMilliseconds: 392
+      name: PushImage
+      startTime: "2021-09-01T20:22:31Z"
+      steps:
+      - durationMilliseconds: 392
+        name: PushImage
+        startTime: "2021-09-01T20:22:31Z"
+    startTimestamp: "2021-09-01T20:21:42Z"
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      description: Keeps track of changes in the application image
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: "2021-09-01T20:21:42Z"
+    generation: 1
+    labels:
+      app: nodejs-mongodb
+      template: nodejs-mongodb
+    managedFields:
+    - apiVersion: image.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:description: {}
+            f:openshift.io/generated-by: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:template: {}
+      manager: oc
+      operation: Update
+      time: "2021-09-01T20:21:42Z"
+    name: nodejs-mongodb
+    namespace: template
+    resourceVersion: "280209"
+    selfLink: /apis/image.openshift.io/v1/namespaces/template/imagestreams/nodejs-mongodb
+    uid: b2262fce-564f-47ec-ac68-3e208b08000a
+  spec:
+    lookupPolicy:
+      local: false
+  status:
+    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb
+    publicDockerImageRepository: default-route-openshift-image-registry.apps.na46.prod.nextcle.com/template/nodejs-mongodb
+    tags:
+    - items:
+      - created: "2021-09-01T20:22:32Z"
+        dockerImageReference: image-registry.openshift-image-registry.svc:5000/template/nodejs-mongodb@sha256:dd8f1acf923358f0fe4a7f089dcd714b227536f6acb5ebf1ecd839275629cc9c
+        generation: 1
+        image: sha256:dd8f1acf923358f0fe4a7f089dcd714b227536f6acb5ebf1ecd839275629cc9c
+      tag: latest
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/host.generated: "true"
+    creationTimestamp: "2021-09-01T20:21:42Z"
+    labels:
+      app: nodejs-mongodb
+      template: nodejs-mongodb
+    managedFields:
+    - apiVersion: route.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:openshift.io/generated-by: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:template: {}
+        f:spec:
+          f:to:
+            f:kind: {}
+            f:name: {}
+            f:weight: {}
+          f:wildcardPolicy: {}
+      manager: oc
+      operation: Update
+      time: "2021-09-01T20:21:42Z"
+    - apiVersion: route.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:ingress: {}
+      manager: openshift-router
+      operation: Update
+      time: "2021-09-01T20:21:42Z"
+    name: nodejs-mongodb
+    namespace: template
+    resourceVersion: "279715"
+    selfLink: /apis/route.openshift.io/v1/namespaces/template/routes/nodejs-mongodb
+    uid: 31b412dd-1192-4e01-82ae-ca94a4f34f10
+  spec:
+    host: nodejs-mongodb-template.apps.na46.prod.nextcle.com
+    to:
+      kind: Service
+      name: nodejs-mongodb
+      weight: 100
+    wildcardPolicy: None
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: "2021-09-01T20:21:42Z"
+        status: "True"
+        type: Admitted
+      host: nodejs-mongodb-template.apps.na46.prod.nextcle.com
+      routerCanonicalHostname: apps.na46.prod.nextcle.com
+      routerName: default
+      wildcardPolicy: None
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
